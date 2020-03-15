@@ -9,32 +9,51 @@ public class insulinPump {
 	}
 	
 	
+	public insulinPump() {
+		// TODO Auto-generated constructor stub
+	}
+
+
+	public void setBatteryLevel(int batteryLevel) {
+		insulinPump.batteryLevel = batteryLevel;
+	}
+
+
+	public void setInsulinLevel(int insulinLevel) {
+		insulinPump.insulinLevel = insulinLevel;
+	}
+
+
 	public static int getBatteryLevel()
 	{
 		
 		return batteryLevel;
 	}
-	public static boolean alarmBatteryLevel()
+	public boolean alarmBatteryLevel()
 	{
 		
 		int batteryLevel = getBatteryLevel();
 		if(batteryLevel< 20 )
 		{
+			System.out.println(batteryLevel + ": Battery level is low");
 			return true; 
 		}
+			System.out.println(batteryLevel + ": Battery level is good");
 			return false; 
 	}
 	public static int getInsulinLevel()
 	{
 		return insulinLevel;
 	}
-	public static boolean  alarmInsulinLevel()
+	public boolean  alarmInsulinLevel()
 	{
 		int insulinLevel = getInsulinLevel();
 		if(insulinLevel < 20)
 		{
+			System.out.println(insulinLevel + ": Insulin level is low");
 			return true;
 		}
+			System.out.println(insulinLevel + ": Insulin level is good");
 			return false; 
 	}
 }
