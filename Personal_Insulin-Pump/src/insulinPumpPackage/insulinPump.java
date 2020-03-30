@@ -1,5 +1,5 @@
 package insulinPumpPackage;
-import javax.swing.*;
+import javax.swing.JOptionPane;
 public class insulinPump {
 
 	private static int batteryLevel;
@@ -36,13 +36,12 @@ public class insulinPump {
 		int batteryLevel = getBatteryLevel();
 		if(batteryLevel< 20 )
 		{
-			
 			//System.out.println(batteryLevel + ": Battery level is low");
 			String message = batteryLevel + "%: Battery level is low";
 			JOptionPane.showMessageDialog(null, message);
 			return true; 
 		}
-			//System.out.println(batteryLevel + ": Battery level is good");
+			//System.out.println(batteryLevel + ":Battery level is good");
 			String message = batteryLevel + "%: Battery level is good";
 			JOptionPane.showMessageDialog(null, message);
 			return false; 
@@ -56,15 +55,14 @@ public class insulinPump {
 		int insulinLevel = getInsulinLevel();
 		if(insulinLevel < 20)
 		{
-			//System.out.println(insulinLevel + ": Insulin level is low");
+			System.out.println(insulinLevel + ": Insulin level is low");
 			String message = insulinLevel + "%: Insulin level is low";
-			JOptionPane.showMessageDialog(null, message);
+			JOptionPane.showMessageDialog(null,message);
 			return true;
 		}
-			//System.out.println(insulinLevel + ": Insulin level is good");
+			System.out.println(insulinLevel + ": Insulin level is good");
 			String message = insulinLevel + "%: Insulin level is good";
-			JOptionPane.showMessageDialog(null, message);
+			JOptionPane.showMessageDialog(null,message);
 			return false; 
 	}
 }
-	

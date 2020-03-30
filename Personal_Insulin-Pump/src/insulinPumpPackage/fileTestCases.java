@@ -9,12 +9,17 @@ public class fileTestCases {
 	public insulinPump pump = new insulinPump();
 	public fileTestCases(int numOfTestCases) {
 		super(); 
-		creatBatteryTestCase(numOfTestCases);
-		creatInsulinTestCase(numOfTestCases);
-		readBatteryTestCase();	
-		readInsulinTestCase();
+		//creatBatteryTestCase(numOfTestCases);
+		//creatInsulinTestCase(numOfTestCases);
+		//readBatteryTestCase();	
+		//readInsulinTestCase();
 	
 	}
+	
+	public fileTestCases() {
+		
+	}
+	
 	
 	public boolean creatBatteryTestCase(int numOfTestCases) {
 		
