@@ -18,9 +18,9 @@ import java.awt.event.KeyEvent;
 
 
 public class displayButtons extends JPanel implements ActionListener {
-	JButton bBat, bInsulin; 
+	JButton bBat, bInsulin, bSensor,bPump,bDelivery,bNeedle,bRes; 
 	public displayButtons() {
-		 JLabel label = new JLabel("Display Battery or Insulin Level?");
+		 JLabel label = new JLabel("Test Insulin Pump Alarms");
 		 label.setFont(new Font("Serif", Font.BOLD, 30));
 	     
 	     label.setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, Color.BLACK));
@@ -37,14 +37,45 @@ public class displayButtons extends JPanel implements ActionListener {
 		bInsulin.setMnemonic(KeyEvent.VK_I);
 		bInsulin.setActionCommand("display insulin level");
 		
+		bSensor = new JButton("Sensor");
+		bSensor.setMnemonic(KeyEvent.VK_I);
+		bSensor.setActionCommand("display sensor failure");
+		
+		bPump = new JButton("Pump");
+		bPump.setMnemonic(KeyEvent.VK_I);
+		bPump.setActionCommand("display Pump failure");
+		
+		bDelivery = new JButton("Delivery");
+		bDelivery.setMnemonic(KeyEvent.VK_I);
+		bDelivery.setActionCommand("display Delivery failure");
+		
+		bNeedle = new JButton("Needle");
+		bNeedle.setMnemonic(KeyEvent.VK_I);
+		bNeedle.setActionCommand("display Needle failure");
+		
+		bRes = new JButton("Reservoir");
+		bRes.setMnemonic(KeyEvent.VK_I);
+		bRes.setActionCommand("display Res failure");
+		
+		
 		//listen for actions
 		bBat.addActionListener(this);
 		bInsulin.addActionListener(this);		
+		bSensor.addActionListener(this);
+		bPump.addActionListener(this);
+		bDelivery.addActionListener(this);
+		bNeedle.addActionListener(this);
+		bRes.addActionListener(this);
 		
 		//add components
 		add(label, BorderLayout.CENTER);
 		add(bBat);
 		add(bInsulin);
+		add(bSensor);
+		add(bPump);
+		add(bDelivery);
+		add(bNeedle);
+		add(bRes);
 		
 				
 	}	
@@ -52,27 +83,68 @@ public class displayButtons extends JPanel implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		System.out.println(e.getActionCommand());
 		// TODO Auto-generated method stub
 		if("display battery level".equals(e.getActionCommand())) {
 			bBat.setEnabled(true);
 			fileTestCases testcase = new fileTestCases();
-			testcase.creatBatteryTestCase(5);
+			testcase.createBatteryTestCase(5);
 			testcase.readBatteryTestCase();
 			
 		}
 		
-		else {			
+		else if("display insulin level".equals(e.getActionCommand())) {			
 			bInsulin.setEnabled(true);
 			fileTestCases testcase = new fileTestCases();
-			testcase.creatInsulinTestCase(5);
+			testcase.createInsulinTestCase(5);
 			testcase.readInsulinTestCase();
 			
 		}
+		else if("display sensor failure".equals(e.getActionCommand())) {	
+			System.out.println("SENSOR");
+			bSensor.setEnabled(true);
+			fileTestCases testcase = new fileTestCases();
+			testcase.createSensorFailureTestCase(5);
+			testcase.readSensorFailureTestCase();
 			
 		
+		}
+		else if("display Pump failure".equals(e.getActionCommand())) {	
+			System.out.println("PUMP");
+			bPump.setEnabled(true);
+			fileTestCases testcase = new fileTestCases();
+			testcase.createPumpFailureTestCase(5);
+			testcase.readPumpFailureTestCase();
 			
 		
+		}
+		else if("display Delivery failure".equals(e.getActionCommand())) {	
+			System.out.println("DELIVERY");
+			bDelivery.setEnabled(true);
+			fileTestCases testcase = new fileTestCases();
+			testcase.createDeliveryFailureTestCase(5);
+			testcase.readDeliveryFailureTestCase();
+			
 		
+		}
+		else if("display Needle failure".equals(e.getActionCommand())) {	
+			System.out.println("NEEDLE");
+			bNeedle.setEnabled(true);
+			fileTestCases testcase = new fileTestCases();
+			testcase.createNeedleAssemblyRemovedTestCase(5);
+			testcase.readNeedleAssemblyRemovedTestCase();
+			
+		
+		}
+		else if("display Res failure".equals(e.getActionCommand())) {		
+			System.out.println("RES");
+			bRes.setEnabled(true);
+			fileTestCases testcase = new fileTestCases();
+			testcase.createInsulinReservoirRemovedTestCase(5);
+			testcase.readInsulinReservoirRemovedTestCase();
+			
+		
+		}
 	}
 	
 

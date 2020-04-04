@@ -7,7 +7,7 @@ import javax.*;
 import javax.swing.*;
 
 
-import com.sun.glass.events.KeyEvent;
+ import java.awt.event.KeyEvent;
 
 import javax.swing.AbstractButton;
 
