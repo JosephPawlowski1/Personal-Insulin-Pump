@@ -105,7 +105,7 @@ public class fileTestCases {
 		      myWriter.write("Insulin Level Test\n");
 		      String testCases= "";
 		      for(int i = 0; i < numOfTestCases; i++) {
-		    	  testCases += (int) (Math.random()* 1) + 0 + " ";
+		    	  testCases += (int) (Math.random()* 2) + 0 + " ";
 		      }
 		      myWriter.write(testCases);
 		      myWriter.close();
@@ -123,7 +123,7 @@ public class fileTestCases {
 		      myWriter.write("Insulin Level Test\n");
 		      String testCases= "";
 		      for(int i = 0; i < numOfTestCases; i++) {
-		    	  testCases += (int) (Math.random()* 1) + 0 + " ";
+		    	  testCases += (int) (Math.random()* 2) + 0 + " ";
 		      }
 		      myWriter.write(testCases);
 		      myWriter.close();
@@ -141,7 +141,7 @@ public class fileTestCases {
 		      myWriter.write("Insulin Level Test\n");
 		      String testCases= "";
 		      for(int i = 0; i < numOfTestCases; i++) {
-		    	  testCases += (int) (Math.random()* 1) + 0 + " ";
+		    	  testCases += (int) (Math.random()* 2) + 0 + " ";
 		      }
 		      myWriter.write(testCases);
 		      myWriter.close();

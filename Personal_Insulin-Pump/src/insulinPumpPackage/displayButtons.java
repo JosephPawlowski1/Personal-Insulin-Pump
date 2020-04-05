@@ -20,8 +20,8 @@ import java.awt.event.KeyEvent;
 public class displayButtons extends JPanel implements ActionListener {
 	JButton bBat, bInsulin, bSensor,bPump,bDelivery,bNeedle,bRes; 
 	public displayButtons() {
-		 JLabel label = new JLabel("Test Insulin Pump Alarms");
-		 label.setFont(new Font("Serif", Font.BOLD, 30));
+		 JLabel label = new JLabel("   Test Insulin Pump Alarms    ");
+		 label.setFont(new Font("Serif", Font.BOLD, 40));
 	     
 	     label.setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, Color.BLACK));
 	       
@@ -68,7 +68,7 @@ public class displayButtons extends JPanel implements ActionListener {
 		bRes.addActionListener(this);
 		
 		//add components
-		add(label, BorderLayout.CENTER);
+		add(label, BorderLayout.NORTH);
 		add(bBat);
 		add(bInsulin);
 		add(bSensor);
@@ -88,7 +88,7 @@ public class displayButtons extends JPanel implements ActionListener {
 		if("display battery level".equals(e.getActionCommand())) {
 			bBat.setEnabled(true);
 			fileTestCases testcase = new fileTestCases();
-			testcase.createBatteryTestCase(5);
+			testcase.createBatteryTestCase(2);
 			testcase.readBatteryTestCase();
 			
 		}
@@ -96,7 +96,7 @@ public class displayButtons extends JPanel implements ActionListener {
 		else if("display insulin level".equals(e.getActionCommand())) {			
 			bInsulin.setEnabled(true);
 			fileTestCases testcase = new fileTestCases();
-			testcase.createInsulinTestCase(5);
+			testcase.createInsulinTestCase(2);
 			testcase.readInsulinTestCase();
 			
 		}
@@ -104,7 +104,7 @@ public class displayButtons extends JPanel implements ActionListener {
 			System.out.println("SENSOR");
 			bSensor.setEnabled(true);
 			fileTestCases testcase = new fileTestCases();
-			testcase.createSensorFailureTestCase(5);
+			testcase.createSensorFailureTestCase(2);
 			testcase.readSensorFailureTestCase();
 			
 		
@@ -113,7 +113,7 @@ public class displayButtons extends JPanel implements ActionListener {
 			System.out.println("PUMP");
 			bPump.setEnabled(true);
 			fileTestCases testcase = new fileTestCases();
-			testcase.createPumpFailureTestCase(5);
+			testcase.createPumpFailureTestCase(2);
 			testcase.readPumpFailureTestCase();
 			
 		
@@ -122,7 +122,7 @@ public class displayButtons extends JPanel implements ActionListener {
 			System.out.println("DELIVERY");
 			bDelivery.setEnabled(true);
 			fileTestCases testcase = new fileTestCases();
-			testcase.createDeliveryFailureTestCase(5);
+			testcase.createDeliveryFailureTestCase(2);
 			testcase.readDeliveryFailureTestCase();
 			
 		
@@ -131,7 +131,7 @@ public class displayButtons extends JPanel implements ActionListener {
 			System.out.println("NEEDLE");
 			bNeedle.setEnabled(true);
 			fileTestCases testcase = new fileTestCases();
-			testcase.createNeedleAssemblyRemovedTestCase(5);
+			testcase.createNeedleAssemblyRemovedTestCase(2);
 			testcase.readNeedleAssemblyRemovedTestCase();
 			
 		
@@ -140,7 +140,7 @@ public class displayButtons extends JPanel implements ActionListener {
 			System.out.println("RES");
 			bRes.setEnabled(true);
 			fileTestCases testcase = new fileTestCases();
-			testcase.createInsulinReservoirRemovedTestCase(5);
+			testcase.createInsulinReservoirRemovedTestCase(2);
 			testcase.readInsulinReservoirRemovedTestCase();
 			
 		
