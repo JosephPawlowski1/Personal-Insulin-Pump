@@ -9,10 +9,12 @@ public class insulinPump {
 	private static int deliveryFailure;
 	private static int needleAssemblyRemoved;
 	private static int insulinReservoirRemoved;
+	private static int numOfTimeInsulinPump;
 	
 	public  insulinPump (int batteryLevel,int insulinLevel) {
 		this.batteryLevel = batteryLevel;
 		this.insulinLevel = insulinLevel;
+		numOfTimeInsulinPump = 0;
 	}
 	
 	
@@ -173,5 +175,44 @@ public class insulinPump {
 			String message = "Insulin Reservoir Good";
 			JOptionPane.showMessageDialog(null,message);
 		}
+	}
+
+
+	public void pumpInsulin(String string, String string2, String string3) {
+		int curr = Integer.parseInt(string);
+		int prev = Integer.parseInt(string2);
+		int prev2 = Integer.parseInt(string3);
+		
+		if(curr < 80 ) {
+			System.out.println("no insulin");
+		}else if(curr > 80 && curr < 200) {
+			if((curr > prev) && ((Math.abs(curr - prev) > prev2))){
+				System.out.println("give insulin");
+				pumpIt();
+				
+			}else {
+				System.out.println("no insulin");
+			}
+		}else if(curr > 200) {
+			if((curr < prev) && ((Math.abs(curr - prev) > Math.abs(prev - prev2)))){
+				System.out.println("no insulin");
+			}else {
+				System.out.println("give insulin");
+				pumpIt();
+			}
+		}
+		
+	}
+
+
+	private void pumpIt() {
+		// TODO Auto-generated method stub
+		if(numOfTimeInsulinPump < 5) {
+		System.out.println("Pump 4 ML of insulin");
+		}else {
+			System.out.println("Seek medical help");
+		}
+		numOfTimeInsulinPump++;
+		
 	}
 }
