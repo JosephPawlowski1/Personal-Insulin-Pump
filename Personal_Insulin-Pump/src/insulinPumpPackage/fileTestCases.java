@@ -13,6 +13,8 @@ public class fileTestCases {
 		//creatInsulinTestCase(numOfTestCases);
 		//readBatteryTestCase();	
 		//readInsulinTestCase();
+		createInsulinPumpTestCase();
+		readInsulinPumpTestCase();
 	
 	}
 	
@@ -66,7 +68,7 @@ public class fileTestCases {
 
 		try {
 		      FileWriter myWriter = new FileWriter("sensorFailureTestCaseFile.txt");
-		      myWriter.write("Insulin Level Test\n");
+		      myWriter.write("Sensor Failure Test\n");
 		      String testCases= "";
 		      for(int i = 0; i < numOfTestCases; i++) {
 		    	  testCases += (int) (Math.random()* 1) + 0 + " ";
@@ -153,6 +155,57 @@ public class fileTestCases {
 		    }
 		return true;
 	}
+	public boolean createInsulinPumpTestCase() {
+		try {
+			FileWriter myWriter = new FileWriter("InsulinPumpTestFile.txt");
+			myWriter.write("Insulin Level Test\n");
+			String testCases="";
+			int numOfTestInOneDay = 144;
+			for(int i = 0; i< numOfTestInOneDay; i++ ) {
+				testCases += (int) (Math.random() * 215) + 65 + " ";
+			}
+			myWriter.write(testCases);
+			myWriter.close();
+			System.out.println("Successfully wrote to the file.");
+		}catch(IOException e) {
+			System.out.println("An error occurred");
+			e.printStackTrace();
+			return false;
+		}
+		return true;
+	}
+	public boolean readInsulinPumpTestCase() {
+		try {
+			File myObj = new File("InsulinPumpTestFile.txt");
+			Scanner myReader = new Scanner(myObj);
+			System.out.println(myReader.nextLine());
+			String data = myReader.nextLine();
+			testInsulinPump(data.split(" "));
+			myReader.close();
+			if(myObj.delete()) {
+				System.out.println("Deleted the file: " + myObj.getName());
+			}else {
+				System.out.println("Problem deleting the file");
+			}
+		}catch(FileNotFoundException e){
+			System.out.println("An error occurred");
+			e.printStackTrace();
+			return false;
+			
+		}
+		return true;
+		
+	}
+	
+
+	private void testInsulinPump(String[] split) {
+		for(int i=2; i< split.length-3; i++)
+		{
+			pump.pumpInsulin(split[i-2],split[i-1],split[i]);
+		}
+		
+	}
+
 	public boolean readBatteryTestCase() {
 		
 		try {
@@ -179,6 +232,7 @@ public class fileTestCases {
 		return true;
 		
 	}
+	
 	public boolean readInsulinTestCase() {
 		
 		try {
@@ -215,7 +269,7 @@ public class fileTestCases {
 		      if (myObj.delete()) { 
 		          System.out.println("Deleted the file: " + myObj.getName());
 		        } else {
-		          System.out.println("Failed to delete the file.");
+		         System.out.println("Failed to delete the file.");
 		        } 
 		    } catch (FileNotFoundException e) {
 		      System.out.println("An error occurred.");
