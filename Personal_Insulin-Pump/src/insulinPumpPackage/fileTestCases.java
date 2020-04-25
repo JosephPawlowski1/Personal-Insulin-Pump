@@ -157,12 +157,22 @@ public class fileTestCases {
 	}
 	public boolean createInsulinPumpTestCase() {
 		try {
+			int[] arr = {-10,-10,-5,0,5,10,15};
 			FileWriter myWriter = new FileWriter("InsulinPumpTestFile.txt");
 			myWriter.write("Insulin Level Test\n");
 			String testCases="";
 			int numOfTestInOneDay = 144;
+			int sugerLevel = 100;
 			for(int i = 0; i< numOfTestInOneDay; i++ ) {
-				testCases += (int) (Math.random() * 215) + 65 + " ";
+				if(sugerLevel  > 350){
+					sugerLevel = sugerLevel - 30;
+				}else if(sugerLevel < 75){
+					sugerLevel = sugerLevel + 30;
+				}else{
+
+				sugerLevel = sugerLevel + arr[(int) (Math.random() * 6) + 0];
+				testCases += sugerLevel + " ";
+				}
 			}
 			myWriter.write(testCases);
 			myWriter.close();
@@ -182,11 +192,11 @@ public class fileTestCases {
 			String data = myReader.nextLine();
 			testInsulinPump(data.split(" "));
 			myReader.close();
-			if(myObj.delete()) {
-				System.out.println("Deleted the file: " + myObj.getName());
-			}else {
-				System.out.println("Problem deleting the file");
-			}
+			//if(myObj.delete()) {
+			//	System.out.println("Deleted the file: " + myObj.getName());
+			//}else {
+			//	System.out.println("Problem deleting the file");
+		//	}
 		}catch(FileNotFoundException e){
 			System.out.println("An error occurred");
 			e.printStackTrace();
