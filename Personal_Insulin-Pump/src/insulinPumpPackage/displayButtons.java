@@ -25,24 +25,27 @@ import java.util.Date;
 public class displayButtons extends JPanel implements ActionListener {
 	JButton bBat, bInsulin, bSensor, bPump, bDelivery , bNeedle, bRes, bTime;
 	JFrame timeFrame;
+	public JLabel label;
+	
 	
 	public displayButtons() {
 
-		 JLabel label = new JLabel("Test Insulin Pump Alarms");
+		 label = new JLabel("Insulin Pump Alarms");
 		 label.setFont(new Font("Serif", Font.BOLD, 20));
 		 label.setVerticalAlignment(JLabel.CENTER);
 		 label.setHorizontalAlignment(JLabel.CENTER);
 	     
-	     label.setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, Color.BLACK)); 
-		 
+	     label.setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, Color.BLACK)); 		 
 		 label.setFont(new Font("Serif", Font.BOLD, 40));
+		 
+		 
 
 	     
 	     //time button
 	     bTime = new JButton("Time");
 	     bTime.setMnemonic(KeyEvent.VK_I);
 	     bTime.setActionCommand("display time");
-	     //bTime.setBounds(50,50,30,20);
+	     
 	       
 		//Instantiate the battery JButton
 		bBat = new JButton("Battery");		
@@ -50,7 +53,7 @@ public class displayButtons extends JPanel implements ActionListener {
 		bBat.setActionCommand("display battery level");
 		
 		//Instantiate the insulin  JButton
-		bInsulin = new JButton("Insulin"); //default CENTER, TRAILING
+		bInsulin = new JButton("Insulin"); 
 		bInsulin.setMnemonic(KeyEvent.VK_I);
 		bInsulin.setActionCommand("display insulin level");
 		
