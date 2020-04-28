@@ -185,19 +185,28 @@ public class insulinPump {
 		
 		if(curr < 80 ) {
 			System.out.println("no insulin");
+			String message = "no insulin";
 		}else if(curr > 80 && curr < 200) {
 			if((curr > prev) && ((Math.abs(curr - prev) > prev2))){
 				System.out.println("give insulin");
+				String message = "give insulin";
+				JOptionPane.showMessageDialog(null, message);
 				pumpIt();
 				
 			}else {
 				System.out.println("no insulin");
+				String message = "no insulin";
+				//JOptionPane.showMessageDialog(null, message);
 			}
 		}else if(curr > 200) {
 			if((curr < prev) && ((Math.abs(curr - prev) > Math.abs(prev - prev2)))){
 				System.out.println("no insulin");
+				String message = "no insulin";
+				JOptionPane.showMessageDialog(null, message);
 			}else {
 				System.out.println("give insulin");
+				String message = "give insulin";
+				JOptionPane.showMessageDialog(null, message);
 				pumpIt();
 			}
 		}
@@ -209,8 +218,13 @@ public class insulinPump {
 		// TODO Auto-generated method stub
 		if(numOfTimeInsulinPump < 5) {
 		System.out.println("Pump 4 ML of insulin");
+		String message = "Pump 4 ML of insulin";
+		JOptionPane.showMessageDialog(null, message);
+		
 		}else {
 			System.out.println("Seek medical help");
+			String message = "Seek medical help";
+			JOptionPane.showMessageDialog(null, message);
 		}
 		numOfTimeInsulinPump++;
 		

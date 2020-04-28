@@ -36,7 +36,7 @@ public class main {
 	        
 	        //layout for button options
 	        int x = 80;
-	        JButton arr[] = new JButton[8];
+	        JButton arr[] = new JButton[9];
 	        arr[0] = pane.bTime;
 	        arr[1] = pane.bBat;
 	        arr[2] = pane.bDelivery;
@@ -45,6 +45,7 @@ public class main {
 	        arr[5] = pane.bPump;
 	        arr[6] = pane.bRes; 
 	        arr[7] = pane.bSensor;
+	        arr[8] = pane.bInLevel;
 	        
 	        for(int i = 0; i < arr.length; i++) {
 	        	arr[i].setBounds(40,x,100,30);

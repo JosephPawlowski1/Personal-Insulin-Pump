@@ -23,7 +23,7 @@ import java.util.Date;
 
 
 public class displayButtons extends JPanel implements ActionListener {
-	JButton bBat, bInsulin, bSensor, bPump, bDelivery , bNeedle, bRes, bTime;
+	JButton bBat, bInsulin, bSensor, bPump, bDelivery , bNeedle, bRes, bTime, bInLevel;
 	JFrame timeFrame;
 	public JLabel label;
 	
@@ -77,6 +77,10 @@ public class displayButtons extends JPanel implements ActionListener {
 		bRes.setMnemonic(KeyEvent.VK_I);
 		bRes.setActionCommand("display Res failure");
 		
+		bInLevel = new JButton("I-Level");
+		bInLevel.setMnemonic(KeyEvent.VK_I);
+		bInLevel.setActionCommand("display Insulin Level");
+		
 		
 		//listen for actions
 		bTime.addActionListener(this);
@@ -87,6 +91,7 @@ public class displayButtons extends JPanel implements ActionListener {
 		bDelivery.addActionListener(this);
 		bNeedle.addActionListener(this);
 		bRes.addActionListener(this);
+		bInLevel.addActionListener(this);
 		
 
 		//add components		
@@ -102,6 +107,7 @@ public class displayButtons extends JPanel implements ActionListener {
 		add(bDelivery);
 		add(bNeedle);
 		add(bRes);
+		add(bInLevel);
 		
 				
 	}
@@ -222,6 +228,16 @@ public class displayButtons extends JPanel implements ActionListener {
 			testcase.readInsulinReservoirRemovedTestCase();
 			
 		
+		}
+		else if("display Insulin level".equals(e.getActionCommand())){
+			bInLevel.setEnabled(true);
+			
+			fileTestCases testcase = new fileTestCases();
+			
+			testcase.createInsulinPumpTestCase();
+			
+			testcase.readInsulinPumpTestCase();
+			
 		}
 	}
 	
