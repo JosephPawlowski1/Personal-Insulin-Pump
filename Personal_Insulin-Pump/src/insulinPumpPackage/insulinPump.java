@@ -10,11 +10,13 @@ public class insulinPump {
 	private static int needleAssemblyRemoved;
 	private static int insulinReservoirRemoved;
 	private static int numOfTimeInsulinPump;
+	private static int numOfTimesInsulinPumpTest;
 	
 	public  insulinPump (int batteryLevel,int insulinLevel) {
 		this.batteryLevel = batteryLevel;
 		this.insulinLevel = insulinLevel;
 		numOfTimeInsulinPump = 0;
+		numOfTimesInsulinPumpTest =0;
 	}
 	
 	
@@ -178,55 +180,51 @@ public class insulinPump {
 	}
 
 
-	public void pumpInsulin(String string, String string2, String string3) {
+	public int pumpInsulin(String string, String string2, String string3) {
 		int curr = Integer.parseInt(string);
 		int prev = Integer.parseInt(string2);
 		int prev2 = Integer.parseInt(string3);
-		
 		if(curr < 80 ) {
-			System.out.println("no insulin");
-			String message = "no insulin";
+			System.out.println("no insulin ");
+			
 		}else if(curr > 80 && curr < 200) {
 			if((curr > prev) && ((Math.abs(curr - prev) > prev2))){
 				System.out.println("give insulin");
-				String message = "give insulin";
-				JOptionPane.showMessageDialog(null, message);
-				pumpIt();
+				//String message = "give insulin";
+				//JOptionPane.showMessageDialog(null, message);
+				numOfTimeInsulinPump = pumpIt();
+				return 1;
 				
 			}else {
-				System.out.println("no insulin");
-				String message = "no insulin";
-				//JOptionPane.showMessageDialog(null, message);
+				System.out.println("no insulin ");
+				
 			}
 		}else if(curr > 200) {
 			if((curr < prev) && ((Math.abs(curr - prev) > Math.abs(prev - prev2)))){
 				System.out.println("no insulin");
-				String message = "no insulin";
-				JOptionPane.showMessageDialog(null, message);
+				
 			}else {
 				System.out.println("give insulin");
-				String message = "give insulin";
-				JOptionPane.showMessageDialog(null, message);
-				pumpIt();
+				numOfTimeInsulinPump = pumpIt();
+				return 1;
 			}
 		}
 		
+		return 0;
 	}
 
 
-	private void pumpIt() {
+	private int pumpIt() {
 		// TODO Auto-generated method stub
 		if(numOfTimeInsulinPump < 5) {
 		System.out.println("Pump 4 ML of insulin");
-		String message = "Pump 4 ML of insulin";
-		JOptionPane.showMessageDialog(null, message);
+	
 		
 		}else {
 			System.out.println("Seek medical help");
-			String message = "Seek medical help";
-			JOptionPane.showMessageDialog(null, message);
+		
 		}
-		numOfTimeInsulinPump++;
+		return numOfTimeInsulinPump++;
 		
 	}
 }

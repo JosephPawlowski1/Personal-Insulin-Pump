@@ -77,9 +77,9 @@ public class displayButtons extends JPanel implements ActionListener {
 		bRes.setMnemonic(KeyEvent.VK_I);
 		bRes.setActionCommand("display Res failure");
 		
-		bInLevel = new JButton("I-Level");
+		bInLevel = new JButton("Pump");
 		bInLevel.setMnemonic(KeyEvent.VK_I);
-		bInLevel.setActionCommand("display Insulin Level");
+		bInLevel.setActionCommand("display Insulin Pump Test");
 		
 		
 		//listen for actions
@@ -229,9 +229,9 @@ public class displayButtons extends JPanel implements ActionListener {
 			
 		
 		}
-		else if("display Insulin level".equals(e.getActionCommand())){
+		else if("display Insulin Pump Test".equals(e.getActionCommand())){
 			bInLevel.setEnabled(true);
-			
+		
 			fileTestCases testcase = new fileTestCases();
 			
 			testcase.createInsulinPumpTestCase();

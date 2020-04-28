@@ -1,9 +1,12 @@
 package insulinPumpPackage;
-import java.io.File;  // Import the File class
+
+import java.io.File; // Import the File class
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
-import java.io.IOException;  // Import the IOException class to handle errors
+import java.io.IOException; // Import the IOException class to handle errors
 import java.util.Scanner;
+
+import javax.swing.JOptionPane;
 public class fileTestCases {
 
 	public insulinPump pump = new insulinPump();
@@ -13,8 +16,8 @@ public class fileTestCases {
 		//creatInsulinTestCase(numOfTestCases);
 		//readBatteryTestCase();	
 		//readInsulinTestCase();
-		createInsulinPumpTestCase();
-		readInsulinPumpTestCase();
+		//createInsulinPumpTestCase();
+		//readInsulinPumpTestCase();
 	
 	}
 	
@@ -157,7 +160,7 @@ public class fileTestCases {
 	}
 	public boolean createInsulinPumpTestCase() {
 		try {
-			int[] arr = {-10,-10,-5,0,5,10,15};
+			int[] arr = {-15,-10,-5,0,5,10,15};
 			FileWriter myWriter = new FileWriter("InsulinPumpTestFile.txt");
 			myWriter.write("Insulin Level Test\n");
 			String testCases="";
@@ -171,8 +174,8 @@ public class fileTestCases {
 				}else{
 
 				sugerLevel = sugerLevel + arr[(int) (Math.random() * 6) + 0];
-				testCases += sugerLevel + " ";
 				}
+				testCases += sugerLevel + " ";
 			}
 			myWriter.write(testCases);
 			myWriter.close();
@@ -192,11 +195,11 @@ public class fileTestCases {
 			String data = myReader.nextLine();
 			testInsulinPump(data.split(" "));
 			myReader.close();
-			//if(myObj.delete()) {
-			//	System.out.println("Deleted the file: " + myObj.getName());
-			//}else {
-			//	System.out.println("Problem deleting the file");
-		//	}
+			if(myObj.delete()) {
+				System.out.println("Deleted the file: " + myObj.getName());
+			}else {
+				System.out.println("Problem deleting the file");
+			}
 		}catch(FileNotFoundException e){
 			System.out.println("An error occurred");
 			e.printStackTrace();
@@ -209,10 +212,15 @@ public class fileTestCases {
 	
 
 	private void testInsulinPump(String[] split) {
+		int numOfTimeInsulinPump=0;
 		for(int i=2; i< split.length-3; i++)
 		{
-			pump.pumpInsulin(split[i-2],split[i-1],split[i]);
+			numOfTimeInsulinPump = numOfTimeInsulinPump +pump.pumpInsulin(split[i-2],split[i-1],split[i]);
 		}
+		System.out.println("Test ended");
+		String message = numOfTimeInsulinPump * 4 + " ML of insulin was pumped today";
+		JOptionPane.showMessageDialog(null, message);
+		
 		
 	}
 
