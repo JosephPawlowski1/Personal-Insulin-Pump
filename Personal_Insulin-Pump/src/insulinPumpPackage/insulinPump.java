@@ -186,26 +186,26 @@ public class insulinPump {
 		int prev2 = Integer.parseInt(string3);
 		if(curr < 80 ) {
 
-			System.out.println("no insulin ");
+			//System.out.println("no insulin ");
 			
 		}else if(curr > 80 && curr < 200) {
 			if((curr > prev) && ((Math.abs(curr - prev) > prev2))){
-				System.out.println("give insulin");
+				//System.out.println("give insulin");
 				//String message = "give insulin";
 				//JOptionPane.showMessageDialog(null, message);
 				numOfTimeInsulinPump = pumpIt();
 				return 1;
 				
 			}else {
-				System.out.println("no insulin ");
+				//System.out.println("no insulin ");
 				
 			}
 		}else if(curr > 200) {
 			if((curr < prev) && ((Math.abs(curr - prev) > Math.abs(prev - prev2)))){
-				System.out.println("no insulin");
+				//System.out.println("no insulin");
 				
 			}else {
-				System.out.println("give insulin");
+				//System.out.println("give insulin");
 				numOfTimeInsulinPump = pumpIt();
 				return 1;
 

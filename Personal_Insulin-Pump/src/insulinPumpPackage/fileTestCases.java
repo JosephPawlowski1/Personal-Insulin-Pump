@@ -22,8 +22,7 @@ public class fileTestCases {
 	}
 	
 	public fileTestCases() {
-		createInsulinPumpTestCase();
-		readInsulinPumpTestCase();
+		
 	}
 	
 	
