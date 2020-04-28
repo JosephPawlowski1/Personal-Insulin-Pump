@@ -22,7 +22,8 @@ public class fileTestCases {
 	}
 	
 	public fileTestCases() {
-		
+		createInsulinPumpTestCase();
+		readInsulinPumpTestCase();
 	}
 	
 	
@@ -166,7 +167,7 @@ public class fileTestCases {
 			String testCases="";
 			int numOfTestInOneDay = 144;
 			int sugerLevel = 100;
-			for(int i = 0; i< numOfTestInOneDay; i++ ) {
+			for(int i = 0; i< numOfTestInOneDay; i++ ) {				
 				if(sugerLevel  > 350){
 					sugerLevel = sugerLevel - 30;
 				}else if(sugerLevel < 75){
@@ -174,8 +175,10 @@ public class fileTestCases {
 				}else{
 
 				sugerLevel = sugerLevel + arr[(int) (Math.random() * 6) + 0];
+
 				}
 				testCases += sugerLevel + " ";
+
 			}
 			myWriter.write(testCases);
 			myWriter.close();

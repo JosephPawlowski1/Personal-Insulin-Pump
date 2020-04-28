@@ -185,6 +185,7 @@ public class insulinPump {
 		int prev = Integer.parseInt(string2);
 		int prev2 = Integer.parseInt(string3);
 		if(curr < 80 ) {
+
 			System.out.println("no insulin ");
 			
 		}else if(curr > 80 && curr < 200) {
@@ -207,6 +208,7 @@ public class insulinPump {
 				System.out.println("give insulin");
 				numOfTimeInsulinPump = pumpIt();
 				return 1;
+
 			}
 		}
 		
