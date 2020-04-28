@@ -184,28 +184,29 @@ public class insulinPump {
 		int prev2 = Integer.parseInt(string3);
 		
 		if(curr < 80 ) {
-			System.out.println("no insulin");
-			String message = "no insulin";
+			System.out.println("Insulin level at " + string + ":" + " no insulin");
+			String message = "Insulin level at " + string + ": no insulin";
+			JOptionPane.showMessageDialog(null,message);
 		}else if(curr > 80 && curr < 200) {
 			if((curr > prev) && ((Math.abs(curr - prev) > prev2))){
-				System.out.println("give insulin");
-				String message = "give insulin";
+				System.out.println("Insulin level at " + string + ":" + " give insulin");
+				String message = "Insulin level at " + string + ":" + " give insulin";
 				JOptionPane.showMessageDialog(null, message);
 				pumpIt();
 				
 			}else {
-				System.out.println("no insulin");
-				String message = "no insulin";
-				//JOptionPane.showMessageDialog(null, message);
+				System.out.println("Insulin level at " + string + ": no insulin");
+				String message = "Insulin level at " + string + ": no insulin";
+				JOptionPane.showMessageDialog(null, message);
 			}
 		}else if(curr > 200) {
 			if((curr < prev) && ((Math.abs(curr - prev) > Math.abs(prev - prev2)))){
-				System.out.println("no insulin");
-				String message = "no insulin";
+				System.out.println("Insulin level at " + string + ": no insulin");
+				String message = "Insulin level at " + string + ": no insulin";
 				JOptionPane.showMessageDialog(null, message);
 			}else {
-				System.out.println("give insulin");
-				String message = "give insulin";
+				System.out.println("Insulin level at " + string + ": give insulin");
+				String message = "Insulin level at " + string + ": give insulin";
 				JOptionPane.showMessageDialog(null, message);
 				pumpIt();
 			}
