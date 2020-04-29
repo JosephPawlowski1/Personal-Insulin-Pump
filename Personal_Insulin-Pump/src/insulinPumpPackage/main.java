@@ -48,9 +48,10 @@ public class main {
 	        arr[8] = pane.bInLevel;
 	        
 	        for(int i = 0; i < arr.length; i++) {
-	        	arr[i].setBounds(40,x,100,30);
+	        	arr[i].setBounds(40,x,200,30);
 	        	x += 40;	        	
 	        }
+	        
 	        
 	        /*
 	        pane.bTime.setBounds(40,40,100,30);

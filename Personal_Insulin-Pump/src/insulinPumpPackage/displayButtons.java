@@ -77,7 +77,7 @@ public class displayButtons extends JPanel implements ActionListener {
 		bRes.setMnemonic(KeyEvent.VK_I);
 		bRes.setActionCommand("display Res failure");
 		
-		bInLevel = new JButton("Pump");
+		bInLevel = new JButton("Amount Pumped (Today)");
 		bInLevel.setMnemonic(KeyEvent.VK_I);
 		bInLevel.setActionCommand("display Insulin Pump Test");
 		
